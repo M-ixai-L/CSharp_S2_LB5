@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharm_LB5", "CSharm_LB5\CSharm_LB5.csproj", "{9687AB1D-E2FF-43F0-BD80-D81060F35766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9687AB1D-E2FF-43F0-BD80-D81060F35766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9687AB1D-E2FF-43F0-BD80-D81060F35766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9687AB1D-E2FF-43F0-BD80-D81060F35766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9687AB1D-E2FF-43F0-BD80-D81060F35766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
