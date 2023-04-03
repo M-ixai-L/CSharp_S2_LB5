@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharm_LB5", "CSharm_LB5\CSharm_LB5.csproj", "{9687AB1D-E2FF-43F0-BD80-D81060F35766}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_LB5", "CSharp_LB5\CSharp_LB5.csproj", "{9687AB1D-E2FF-43F0-BD80-D81060F35766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
