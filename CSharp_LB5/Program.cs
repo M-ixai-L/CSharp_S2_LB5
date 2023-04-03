@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CSharm_LB5
+namespace CSharp_LB5
 {
     static class Program
     {

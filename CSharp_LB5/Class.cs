@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CSharm_LB5
+namespace CSharp_LB5
 {
     class Person
     {

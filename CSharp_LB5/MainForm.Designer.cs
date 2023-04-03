@@ -1,4 +1,4 @@
-﻿namespace CSharm_LB5
+﻿namespace CSharp_LB5
 {
     partial class MainForm
     {
@@ -40,6 +40,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Бібліотека";
             this.ResumeLayout(false);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
         }
 
         #endregion
