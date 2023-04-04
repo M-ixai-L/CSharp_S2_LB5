@@ -14,7 +14,7 @@ namespace CSharp_LB5
     {
         private Library library = new Library();
 
-        private Functions functions;
+        private Functions functions = new Functions();
         public MainForm()
         {
             library = functions.ReadLibrary();
