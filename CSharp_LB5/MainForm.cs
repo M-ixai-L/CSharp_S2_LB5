@@ -32,5 +32,16 @@ namespace CSharp_LB5
             else
                 e.Cancel = true;
         }
+
+        private void buttonListBooks_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonAddBook_Click(object sender, EventArgs e)
+        {
+            FormAddBook formAddBook = new FormAddBook();
+            formAddBook.Show();
+        }
     }
 }
