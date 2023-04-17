@@ -1,1 +1,1 @@
-{"Books":[],"Readers":[]}
+{"Books":[{"name":"Book1","author":"Author1","countPages":110,"id":"001"},{"name":"Book2","author":"Author1","countPages":119,"id":"002"},{"name":"Book2","author":"Author2","countPages":119,"id":"003"},{"name":"Book1","author":"Author1","countPages":110,"id":"004"},{"name":"Book4","author":"Author2","countPages":240,"id":"005"},{"name":"Book3","author":"Author3","countPages":80,"id":"006"},{"name":"Book6","author":"Author6","countPages":550,"id":"007"},{"name":"Book8","author":"Author8","countPages":90,"id":"008"}],"Readers":[]}

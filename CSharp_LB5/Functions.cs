@@ -6,20 +6,27 @@ namespace CSharp_LB5
 {
     public class Functions
     {
-        internal Library ReadLibrary()
+        //internal void 
+        private Library library;
+        
+        //
+        internal Functions(Library library)
+        {
+            this.library = library;
+        }
+
+        internal void ReadLibrary()
         {
             Library readLibrary = new Library();
 
             if (File.Exists("library.json"))
             {
                 string readJSON = File.ReadAllText("library.json");
-                readLibrary = JsonSerializer.Deserialize<Library>(readJSON);
+                library = JsonSerializer.Deserialize<Library>(readJSON);
             }
-            
-            return readLibrary;
         }
 
-        internal void WriteJSON(Library library)
+        internal void WriteJSON()
         {
             string writeJSON = JsonSerializer.Serialize(library);
             File.WriteAllText("library.json", writeJSON);

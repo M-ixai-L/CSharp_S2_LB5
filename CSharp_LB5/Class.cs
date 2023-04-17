@@ -14,6 +14,7 @@ namespace CSharp_LB5
     class Book
     {
         public string name { get; set; } = string.Empty;
+        public string author { get; set; } = string.Empty;
         public int countPages { get; set; } = 0;
         public string id { get; set; } = string.Empty;
     }
