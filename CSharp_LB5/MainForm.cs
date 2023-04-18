@@ -114,6 +114,19 @@ namespace CSharp_LB5
             FormReturnBook formReturnBook = new FormReturnBook(mainLibrary);
             formReturnBook.ShowDialog();
             AllUpdate();
+
+            bool findGetBook = false;
+            for (int i = 0; i < mainLibrary.Readers.Count; i++)
+            {
+                if (mainLibrary.Readers[i].countBooks > 0)
+                {
+                    findGetBook = true;
+                    break;
+                }
+            }
+
+            if (!findGetBook)
+                buttonReturnBook.Enabled = false;
         }
         
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
