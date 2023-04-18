@@ -19,6 +19,32 @@ namespace CSharp_LB5
         private FormShowListReaders formShowListReaders;
 
         private Functions functions;
+
+        private void AllUpdate()
+        {
+            if (formShowListBooks != null)
+            {
+                if (formShowListBooks.formBooksOpen)
+                {
+                    ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListBooks.UpdateDataGridView);
+                    Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
+                    threadUpdateDataGridView.Start();
+                }
+            }
+            if (formShowListReaders != null)
+            {
+                if (formShowListReaders.formReadersOpen)
+                {
+                    ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListReaders.UpdateDataGridView);
+                    Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
+                    threadUpdateDataGridView.Start();
+                }
+            }
+            ThreadStart threadStartWriteJSON = new ThreadStart(functions.WriteJSON);
+            Thread threadWriteJSON = new Thread(threadStartWriteJSON);
+            threadWriteJSON.Start();
+        }
+        
         public MainForm()
         {
             functions = new Functions(mainLibrary);
@@ -42,19 +68,6 @@ namespace CSharp_LB5
             }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Ви дійсно бажаєте завершити роботу?", "Warning!", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialog == DialogResult.Yes)
-            {
-                functions.WriteJSON();
-                e.Cancel = false;
-            }
-            else
-                e.Cancel = true;
-        }
-
         private void buttonListBooks_Click(object sender, EventArgs e)
         {
             formShowListBooks = new FormShowListBooks(mainLibrary);
@@ -71,18 +84,7 @@ namespace CSharp_LB5
                 buttonListBooks.Enabled = true;
             }
 
-            if (formShowListBooks != null)
-            {
-                if (formShowListBooks.formBooksOpen)
-                {
-                    ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListBooks.UpdateDataGridView);
-                    Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
-                    threadUpdateDataGridView.Start();
-                }
-            }
-            ThreadStart threadStartWriteJSON = new ThreadStart(functions.WriteJSON);
-            Thread threadWriteJSON = new Thread(threadStartWriteJSON);
-            threadWriteJSON.Start();
+            AllUpdate();
         }
 
         private void buttonGiveReaderBook_Click(object sender, EventArgs e)
@@ -97,21 +99,34 @@ namespace CSharp_LB5
                     break;
                 }
             }
-            if (formShowListReaders != null)
-            {
-                if (formShowListReaders.formReadersOpen)
-                {
-                    ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListReaders.UpdateDataGridView);
-                    Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
-                    threadUpdateDataGridView.Start();
-                }
-            }
+            
+            AllUpdate();
         }
 
         private void buttonListReaders_Click(object sender, EventArgs e)
         {
             formShowListReaders = new FormShowListReaders(mainLibrary);
             formShowListReaders.Show();
+        }
+
+        private void buttonReturnBook_Click(object sender, EventArgs e)
+        {
+            FormReturnBook formReturnBook = new FormReturnBook(mainLibrary);
+            formReturnBook.ShowDialog();
+            AllUpdate();
+        }
+        
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Ви дійсно бажаєте завершити роботу?", "Warning!", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                functions.WriteJSON();
+                e.Cancel = false;
+            }
+            else
+                e.Cancel = true;
         }
     }
 }

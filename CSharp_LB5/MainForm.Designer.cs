@@ -88,6 +88,7 @@
             this.buttonReturnBook.TabIndex = 1;
             this.buttonReturnBook.Text = "Повернути книгу";
             this.buttonReturnBook.UseVisualStyleBackColor = true;
+            this.buttonReturnBook.Click += new System.EventHandler(this.buttonReturnBook_Click);
             // 
             // MainForm
             // 
