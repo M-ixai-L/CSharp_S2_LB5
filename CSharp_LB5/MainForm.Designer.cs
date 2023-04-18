@@ -77,6 +77,7 @@
             this.buttonListReaders.TabIndex = 4;
             this.buttonListReaders.Text = "Список читачів";
             this.buttonListReaders.UseVisualStyleBackColor = true;
+            this.buttonListReaders.Click += new System.EventHandler(this.buttonListReaders_Click);
             // 
             // buttonReturnBook
             // 

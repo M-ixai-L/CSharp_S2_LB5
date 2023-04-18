@@ -37,6 +37,7 @@ namespace CSharp_LB5
             this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountPages = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,11 +45,11 @@ namespace CSharp_LB5
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Number, this.BookName, this.Author, this.CountPages, this.ID });
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Number, this.BookName, this.Author, this.CountPages, this.ID, this.isAccess });
             this.dataGridView1.Location = new System.Drawing.Point(15, 15);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(954, 631);
+            this.dataGridView1.Size = new System.Drawing.Size(954, 331);
             this.dataGridView1.TabIndex = 0;
             // 
             // Number
@@ -91,22 +92,32 @@ namespace CSharp_LB5
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
+            // isAccess
+            // 
+            this.isAccess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.isAccess.HeaderText = "Вільна?";
+            this.isAccess.MinimumWidth = 100;
+            this.isAccess.Name = "isAccess";
+            this.isAccess.ReadOnly = true;
+            // 
             // FormShowListBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(984, 361);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.MinimumSize = new System.Drawing.Size(1000, 700);
+            this.MinimumSize = new System.Drawing.Size(1000, 400);
             this.Name = "FormShowListBooks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список книг";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormShowListBooks_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormShowListBooks_FormClosing);
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn isAccess;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
 

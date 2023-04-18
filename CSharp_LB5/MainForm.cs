@@ -15,7 +15,8 @@ namespace CSharp_LB5
     {
         private Library mainLibrary = new Library();
         
-        FormShowListBooks formShowListBooks;
+        private FormShowListBooks formShowListBooks;
+        private FormShowListReaders formShowListReaders;
 
         private Functions functions;
         public MainForm()
@@ -72,7 +73,7 @@ namespace CSharp_LB5
 
             if (formShowListBooks != null)
             {
-                if (formShowListBooks.formOpen)
+                if (formShowListBooks.formBooksOpen)
                 {
                     ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListBooks.UpdateDataGridView);
                     Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
@@ -96,6 +97,21 @@ namespace CSharp_LB5
                     break;
                 }
             }
+            if (formShowListReaders != null)
+            {
+                if (formShowListReaders.formReadersOpen)
+                {
+                    ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListReaders.UpdateDataGridView);
+                    Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
+                    threadUpdateDataGridView.Start();
+                }
+            }
+        }
+
+        private void buttonListReaders_Click(object sender, EventArgs e)
+        {
+            formShowListReaders = new FormShowListReaders(mainLibrary);
+            formShowListReaders.Show();
         }
     }
 }

@@ -31,3 +31,4 @@ C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharm_LB5\CSharp_LB5\obj\Debug\CSha
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharm_LB5\CSharp_LB5\obj\Debug\CSharp_LB5.FormAddBook.resources
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharm_LB5\CSharp_LB5\obj\Debug\CSharp_LB5.FormShowListBooks.resources
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharm_LB5\CSharp_LB5\obj\Debug\CSharp_LB5.FormGiveReaderBook.resources
+C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharm_LB5\CSharp_LB5\obj\Debug\CSharp_LB5.FormShowListReaders.resources
