@@ -15,15 +15,15 @@ namespace CSharp_LB5
             this.library = library;
         }
 
-        internal void ReadLibrary()
+        internal Library ReadLibrary()
         {
-            Library readLibrary = new Library();
-
             if (File.Exists("library.json"))
             {
                 string readJSON = File.ReadAllText("library.json");
                 library = JsonSerializer.Deserialize<Library>(readJSON);
             }
+
+            return library;
         }
 
         internal void WriteJSON()

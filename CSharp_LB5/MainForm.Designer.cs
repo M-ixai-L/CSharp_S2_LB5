@@ -56,6 +56,7 @@
             this.buttonGiveReaderBook.TabIndex = 2;
             this.buttonGiveReaderBook.Text = "Видати книгу";
             this.buttonGiveReaderBook.UseVisualStyleBackColor = true;
+            this.buttonGiveReaderBook.Click += new System.EventHandler(this.buttonGiveReaderBook_Click);
             // 
             // buttonAddBook
             // 

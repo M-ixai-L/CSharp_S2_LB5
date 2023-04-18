@@ -145,8 +145,6 @@ namespace CSharp_LB5
 
         private System.Windows.Forms.TextBox textBoxAuthor;
 
-        private System.Windows.Forms.ComboBox comboBox1;
-
         private System.Windows.Forms.Label label4;
 
         private System.Windows.Forms.NumericUpDown numericUpDownCountPages;

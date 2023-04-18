@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CSharp_LB5
 {
@@ -9,6 +10,7 @@ namespace CSharp_LB5
         public string id { get; set; } = string.Empty; //readers number
         public int countBooks { get; set; } = 0; //count books, which reader get in library
         public List<string> idBooks { get; set; } = new List<string>(); //id numbers books, which get reader
+        public List<DateTime> dateTimeGetBooks { get; set; } = new List<DateTime>();
     }
 
     class Book
@@ -17,6 +19,7 @@ namespace CSharp_LB5
         public string author { get; set; } = string.Empty;
         public int countPages { get; set; } = 0;
         public string id { get; set; } = string.Empty;
+        public bool isGive { get; set; } = false;
     }
     
     class Library

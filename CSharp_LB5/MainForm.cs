@@ -21,7 +21,7 @@ namespace CSharp_LB5
         public MainForm()
         {
             functions = new Functions(mainLibrary);
-            functions.ReadLibrary();
+            mainLibrary = functions.ReadLibrary();
             InitializeComponent();
             if (mainLibrary.Books.Count != 0)
             {
@@ -31,11 +31,20 @@ namespace CSharp_LB5
 
             if (mainLibrary.Readers.Count != 0)
                 buttonListReaders.Enabled = true;
+            for (int i = 0; i < mainLibrary.Readers.Count; i++)
+            {
+                if (mainLibrary.Readers[i].countBooks > 0)
+                {
+                    buttonReturnBook.Enabled = true;
+                    break;
+                }
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Ви дійсно бажаєте завершити роботу?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialog = MessageBox.Show("Ви дійсно бажаєте завершити роботу?", "Warning!", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialog == DialogResult.Yes)
             {
                 functions.WriteJSON();
@@ -61,15 +70,32 @@ namespace CSharp_LB5
                 buttonListBooks.Enabled = true;
             }
 
-            if (formShowListBooks.formOpen)
+            if (formShowListBooks != null)
             {
-                ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListBooks.UpdateDataGridView);
-                Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
-                threadUpdateDataGridView.Start();
+                if (formShowListBooks.formOpen)
+                {
+                    ThreadStart threadStartUpdateDataGridView = new ThreadStart(formShowListBooks.UpdateDataGridView);
+                    Thread threadUpdateDataGridView = new Thread(threadStartUpdateDataGridView);
+                    threadUpdateDataGridView.Start();
+                }
             }
             ThreadStart threadStartWriteJSON = new ThreadStart(functions.WriteJSON);
             Thread threadWriteJSON = new Thread(threadStartWriteJSON);
             threadWriteJSON.Start();
+        }
+
+        private void buttonGiveReaderBook_Click(object sender, EventArgs e)
+        {
+            FormGiveReaderBook formGiveReaderBook = new FormGiveReaderBook(mainLibrary);
+            formGiveReaderBook.ShowDialog();
+            for (int i = 0; i < mainLibrary.Readers.Count; i++)
+            {
+                if (mainLibrary.Readers[i].countBooks > 0)
+                {
+                    buttonReturnBook.Enabled = true;
+                    break;
+                }
+            }
         }
     }
 }

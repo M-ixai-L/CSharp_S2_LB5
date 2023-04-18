@@ -82,6 +82,12 @@
         <Compile Include="FormAddBook.Designer.cs">
           <DependentUpon>FormAddBook.cs</DependentUpon>
         </Compile>
+        <Compile Include="FormGiveReaderBook.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="FormGiveReaderBook.Designer.cs">
+          <DependentUpon>FormGiveReaderBook.cs</DependentUpon>
+        </Compile>
         <Compile Include="FormShowListBooks.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -99,6 +105,9 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
         <EmbeddedResource Include="FormAddBook.resx">
           <DependentUpon>FormAddBook.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="FormGiveReaderBook.resx">
+          <DependentUpon>FormGiveReaderBook.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="FormShowListBooks.resx">
           <DependentUpon>FormShowListBooks.cs</DependentUpon>
