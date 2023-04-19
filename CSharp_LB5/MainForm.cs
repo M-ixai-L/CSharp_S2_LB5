@@ -54,10 +54,15 @@ namespace CSharp_LB5
             {
                 buttonGiveReaderBook.Enabled = true;
                 buttonListBooks.Enabled = true;
+                buttonRemoveBook.Enabled = true;
             }
 
             if (mainLibrary.Readers.Count != 0)
+            {
                 buttonListReaders.Enabled = true;
+                buttonRemoveReader.Enabled = true;
+            }
+
             for (int i = 0; i < mainLibrary.Readers.Count; i++)
             {
                 if (mainLibrary.Readers[i].countBooks > 0)
@@ -82,6 +87,7 @@ namespace CSharp_LB5
             {
                 buttonGiveReaderBook.Enabled = true;
                 buttonListBooks.Enabled = true;
+                buttonRemoveBook.Enabled = true;
             }
 
             AllUpdate();
@@ -98,6 +104,12 @@ namespace CSharp_LB5
                     buttonReturnBook.Enabled = true;
                     break;
                 }
+            }
+
+            if (mainLibrary.Readers.Count > 0)
+            {
+                buttonListReaders.Enabled = true;
+                buttonRemoveReader.Enabled = true;
             }
             
             AllUpdate();
@@ -140,6 +152,37 @@ namespace CSharp_LB5
             }
             else
                 e.Cancel = true;
+        }
+
+        private void buttonRemoveReader_Click(object sender, EventArgs e)
+        {
+            FormRemoveBookReader formRemoveReader = new FormRemoveBookReader(mainLibrary, "reader");
+            formRemoveReader.ShowDialog();
+            AllUpdate();
+            if (mainLibrary.Readers.Count == 0)
+            {
+                buttonRemoveReader.Enabled = false;
+                buttonListReaders.Enabled = false;
+                buttonReturnBook.Enabled = false;
+                if (formShowListReaders.formReadersOpen)
+                    formShowListReaders.Close();
+            }
+        }
+
+        private void buttonRemoveBook_Click(object sender, EventArgs e)
+        {
+            FormRemoveBookReader formRemoveBook = new FormRemoveBookReader(mainLibrary, "book");
+            formRemoveBook.ShowDialog();
+            AllUpdate();
+            if (mainLibrary.Books.Count == 0)
+            {
+                buttonRemoveBook.Enabled = false;
+                buttonListBooks.Enabled = false;
+                buttonReturnBook.Enabled = false;
+                buttonGiveReaderBook.Enabled = false;
+                if (formShowListBooks.formBooksOpen)
+                    formShowListBooks.Close();
+            }
         }
     }
 }
